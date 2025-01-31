@@ -24,12 +24,12 @@ Chaque tâche peut avoir 0 ou 1 tag, et chaque tag peut être associé à plusie
 	- [X] `PUT /tags/:uuid` : met à jour un tag
 	- [X] `DELETE /tags/:uuid` : supprime un tag
 
-- [ ] Le model `Todo` devra être modifié pour ajouter une relation avec le model `Tag`.
+- [X] Le model `Todo` devra être modifié pour ajouter une relation avec le model `Tag`.
 
 - [X] Les routes de création et modification de tag devront être validées avec les règles suivantes :
 	- `name` est obligatoire et doit faire entre 2 et 30 caractères inclus
 
-- [ ] Les routes de création et modification de todo devront être modifiées pour permettre d'associer un tag à une tâche.
+- [X] Les routes de création et modification de todo devront être modifiées pour permettre d'associer un tag à une tâche.
   - `tag` doit être l'uuid d'un tag existant, et doit être optionnel
 
 - [X] Vous devrez tester les routes avec des tests fonctionnels, comme les autres CRUD de l'application.
