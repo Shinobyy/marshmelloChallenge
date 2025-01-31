@@ -9,7 +9,7 @@ Chaque tâche peut avoir 0 ou 1 tag, et chaque tag peut être associé à plusie
 
 ### Spécifications
 
-- [ ] Le model `Tag` aura les attributs suivants :
+- [X] Le model `Tag` aura les attributs suivants :
   - `id` (int, primary key, auto increment)
   - `uuid` (uuid, unique)
   - `name` (string, unique)
@@ -17,22 +17,22 @@ Chaque tâche peut avoir 0 ou 1 tag, et chaque tag peut être associé à plusie
   - `created_at` (datetime)
   - `updated_at` (datetime)
 
-- [ ] Les routes suivantes devront être ajoutées :
-	- [ ] `GET /tags` : retourne la liste de tous les tags
-	- [ ] `GET /tags/:uuid` : retourne les informations d'un tag
-	- [ ] `POST /tags` : crée un nouveau tag
-	- [ ] `PUT /tags/:uuid` : met à jour un tag
-	- [ ] `DELETE /tags/:uuid` : supprime un tag
+- [X] Les routes suivantes devront être ajoutées :
+	- [X] `GET /tags` : retourne la liste de tous les tags
+	- [X] `GET /tags/:uuid` : retourne les informations d'un tag
+	- [X] `POST /tags` : crée un nouveau tag
+	- [X] `PUT /tags/:uuid` : met à jour un tag
+	- [X] `DELETE /tags/:uuid` : supprime un tag
 
 - [ ] Le model `Todo` devra être modifié pour ajouter une relation avec le model `Tag`.
 
-- [ ] Les routes de création et modification de tag devront être validées avec les règles suivantes :
+- [X] Les routes de création et modification de tag devront être validées avec les règles suivantes :
 	- `name` est obligatoire et doit faire entre 2 et 30 caractères inclus
 
 - [ ] Les routes de création et modification de todo devront être modifiées pour permettre d'associer un tag à une tâche.
   - `tag` doit être l'uuid d'un tag existant, et doit être optionnel
 
-- [ ] Vous devrez tester les routes avec des tests fonctionnels, comme les autres CRUD de l'application.
+- [X] Vous devrez tester les routes avec des tests fonctionnels, comme les autres CRUD de l'application.
 
 ### Rendu
 

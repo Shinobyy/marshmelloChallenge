@@ -1,11 +1,13 @@
-import type { BelongsTo } from '@adonisjs/lucid/types/relations';
+import type { BelongsTo, HasOne } from '@adonisjs/lucid/types/relations';
 
-import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm';
+import { BaseModel, belongsTo, column, hasOne } from '@adonisjs/lucid/orm';
 import { DateTime } from 'luxon';
 import { v7 } from 'uuid';
 
 import Project from '#models/project';
 import Status from '#models/status';
+
+import Tag from './tag.js';
 
 export default class Todo extends BaseModel {
 	static readonly table = 'todos';
@@ -31,6 +33,12 @@ export default class Todo extends BaseModel {
 	@column()
 	declare statusId: number | null;
 
+	@column()
+	declare tagId: number | null;
+
+	@hasOne(() => Tag)
+	declare tag: HasOne<typeof Tag>;
+
 	@belongsTo(() => Project)
 	declare project: BelongsTo<typeof Project>;
 
@@ -49,5 +57,6 @@ export default class Todo extends BaseModel {
 		this.completed = false;
 		this.description = null;
 		this.statusId = null;
+		this.tagId = null;
 	}
 }
