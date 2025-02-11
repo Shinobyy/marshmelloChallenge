@@ -2,9 +2,7 @@ import testUtils from '@adonisjs/core/services/test_utils';
 import { test } from '@japa/runner';
 
 // import Status from '#models/status';
-import Project from '#models/project';
 import Tag from '#models/tag';
-import Todo from '#models/todo';
 import User from '#models/user';
 
 test.group('Tags', (group) => {

@@ -3,6 +3,7 @@ import { test } from '@japa/runner';
 
 import Project from '#models/project';
 import Status from '#models/status';
+import Tag from '#models/tag';
 import Todo from '#models/todo';
 import User from '#models/user';
 
@@ -29,6 +30,8 @@ test.group('Todos', (group) => {
 		const project = await Project.create({ name: 'mon projet', userId: user.id });
 		const status = await Status.create({ name: 'done', order: 1, projectId: project.id });
 
+		const tag = await Tag.create({ name: 'tag' });
+
 		const response = await client
 			.post('/todos')
 			.json({
@@ -36,6 +39,7 @@ test.group('Todos', (group) => {
 				description: baseTodo.description,
 				statusId: status.id,
 				projectId: project.id,
+				tagId: tag.id,
 			})
 			.loginAs(user);
 
@@ -57,12 +61,14 @@ test.group('Todos', (group) => {
 
 		const user = await User.create({ username: 'test1234', password: 'test1234' });
 		const project = await Project.create({ name: 'mon projet', userId: user.id });
+		const tag = await Tag.create({ name: 'tag' });
 		const status = await Status.create({ name: 'done', order: 1, projectId: project.id });
 		const todo = await Todo.create({
 			name: baseTodo.name,
 			description: baseTodo.description,
 			projectId: project.id,
 			statusId: status.id,
+			tagId: tag.id,
 		});
 
 		const getResponse = await client.get(`/todos/${todo.uuid}`).loginAs(user);
@@ -75,6 +81,7 @@ test.group('Todos', (group) => {
 			completed: false,
 			projectId: project.id,
 			statusId: status.id,
+			tagId: tag.id,
 		});
 	});
 
@@ -87,11 +94,13 @@ test.group('Todos', (group) => {
 		const user = await User.create({ username: 'test1234', password: 'test1234' });
 		const project = await Project.create({ name: 'mon projet', userId: user.id });
 		const status = await Status.create({ name: 'done', order: 1, projectId: project.id });
+		const tag = await Tag.create({ name: 'tag' });
 		const todo = await Todo.create({
 			name: baseTodo.name,
 			description: baseTodo.description,
 			projectId: project.id,
 			statusId: status.id,
+			tagId: tag.id,
 		});
 
 		const patchResponse = await client
@@ -109,6 +118,7 @@ test.group('Todos', (group) => {
 			completed: true,
 			projectId: project.id,
 			statusId: status.id,
+			tagId: tag.id,
 		});
 	});
 
@@ -120,12 +130,14 @@ test.group('Todos', (group) => {
 
 		const user = await User.create({ username: 'test1234', password: 'test1234' });
 		const project = await Project.create({ name: 'mon projet', userId: user.id });
+		const tag = await Tag.create({ name: 'tag' });
 		const status = await Status.create({ name: 'done', order: 1, projectId: project.id });
 		const todo = await Todo.create({
 			name: baseTodo.name,
 			description: baseTodo.description,
 			projectId: project.id,
 			statusId: status.id,
+			tagId: tag.id,
 		});
 
 		const patchResponse = await client.delete(`/todos/${todo.uuid}`).loginAs(user);
